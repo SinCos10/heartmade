@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Heartmade Pelúcias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .plush-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .plush-image {
+            height: 250px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+        .plush-card:hover .plush-image {
+            transform: scale(1.05);
+        }
+        .nav-link:hover {
+            color: #f59e0b;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .logo-img {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+        .lettering-logo {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .lettering-logo:hover {
+            transform: scale(1.05);
+        }
+        .contact-icon {
+            transition: all 0.3s ease;
+        }
+        .contact-icon:hover {
+            transform: scale(1.1);
+            color: #f59e0b;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="logo.png" alt="Heartmade Pelúcias" class="logo-img">
+                    <img src="letteringlogo.png" alt="Heartmade Pelúcias Lettering" class="lettering-logo">
+                </a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="catalogocompleto.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Catálogo completo</a>
+                <a href="maisvendidos.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Mais vendidos</a>
+                <a href="categorias.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Categorias</a>
+                <a href="contato.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Contato</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden p-2 text-gray-600" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="catalogocompleto.html" class="block py-2 text-gray-700 hover:text-amber-600">Catálogo completo</a>
+            <a href="maisvendidos.html" class="block py-2 text-gray-700 hover:text-amber-600">Mais vendidos</a>
+            <a href="categorias.html" class="block py-2 text-gray-700 hover:text-amber-600">Categorias</a>
+            <a href="contato.html" class="block py-2 text-gray-700 hover:text-amber-600">Contato</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Contact Content -->
+        <div class="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Fale com a gente!</h2>
+            
+            <div class="flex flex-col md:flex-row gap-6 mb-8">
+                <div class="flex-1 bg-amber-50 rounded-lg p-6 text-center">
+                    <div class="contact-icon text-4xl text-amber-600 mb-3">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Sugestões</h3>
+                    <p class="text-gray-600 text-sm">Tem uma ideia incrível para uma nova pelúcia? Adoraríamos ouvir!</p>
+                </div>
+                
+                <div class="flex-1 bg-amber-50 rounded-lg p-6 text-center">
+                    <div class="contact-icon text-4xl text-amber-600 mb-3">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Parcerias</h3>
+                    <p class="text-gray-600 text-sm">Quer trabalhar conosco? Vamos criar algo mágico juntos!</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-6 mb-8">
+                <div class="flex-1 bg-amber-50 rounded-lg p-6 text-center">
+                    <div class="contact-icon text-4xl text-amber-600 mb-3">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Feedback</h3>
+                    <p class="text-gray-600 text-sm">Sua opinião nos ajuda a ficar cada vez melhores</p>
+                </div>
+                
+                <div class="flex-1 bg-amber-50 rounded-lg p-6 text-center">
+                    <div class="contact-icon text-4xl text-amber-600 mb-3">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Orçamentos</h3>
+                    <p class="text-gray-600 text-sm">Encomendas especiais ou pedidos personalizados</p>
+                </div>
+            </div>
+            
+            <div class="text-center mb-8">
+                <a href="https://wa.me/5561992786566" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-lg transition duration-300 inline-flex items-center space-x-2 shadow-md hover:shadow-lg">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>Fale pelo WhatsApp</span>
+                </a>
+                
+                <div class="mt-4">
+                    <p class="text-gray-600">Ou envie um email para:</p>
+                    <a href="mailto:heartmadepelucias@gmail.com" class="text-amber-600 hover:text-amber-700 font-medium">heartmadepelucias@gmail.com</a>
+                </div>
+            </div>
+            
+            <div class="bg-gray-100 rounded-lg p-4 text-center">
+                <p class="text-gray-600 text-sm">
+                    <i class="fas fa-clock text-amber-600 mr-1"></i>
+                    Tempo médio de resposta: 24 horas (exceto finais de semana)
+                </p>
+            </div>
+                <div class="mt-8">
+                    <img src="logo.png" alt="Heartmade Pelúcias Logo" class="mx-auto w-60 h-auto cursor-pointer hover:scale-105 transition-transform duration-300" onclick="playSqueak()">
+                </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-4">Heartmade Pelúcias</h3>
+                <p class="text-gray-400 max-w-2xl mx-auto">Pelúcias artesanais em Brasília com temas variados para todos os gostos!</p>
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="https://wa.me/5561992786566" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Heartmade Pelúcias. Todos direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+		        // Function to play squeak sound
+        function playSqueak() {
+            const audio = new Audio('squeak.mp3');
+            audio.play().catch(error => {
+                console.log('Audio playback failed:', error);
+            });
+        }
+
+        // Função para reproduzir som de pelúcia (opcional)
+        document.querySelector('.logo-img').addEventListener('click', function() {
+            const audio = new Audio('squeak.mp3');
+            audio.play().catch(error => {
+                console.log('Audio playback failed:', error);
+            });
+        });
+    </script>
+</body>
+</html>

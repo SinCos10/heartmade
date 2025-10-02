@@ -1,0 +1,35 @@
+{
+  "name": "heartmade-news-updater",
+  "version": "1.0.0",
+  "description": "Sistema de atualização automática do carrossel de notícias para Heartmade Pelúcias",
+  "main": "update-news.js",
+  "scripts": {
+    "update": "node update-news.js update",
+    "watch": "node update-news.js watch",
+    "init": "node update-news.js init",
+    "dev": "node update-news.js watch",
+    "build": "node update-news.js update"
+  },
+  "keywords": [
+    "news",
+    "carousel",
+    "html",
+    "automation",
+    "heartmade"
+  ],
+  "author": "Heartmade Pelúcias",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^23.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "local"
+  }
+}

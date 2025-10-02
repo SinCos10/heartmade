@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartmade Pelúcias - Premium Plush Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .plush-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .plush-image {
+            height: 250px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+        .plush-card:hover .plush-image {
+            transform: scale(1.05);
+        }
+        .nav-link:hover {
+            color: #f59e0b;
+        }
+        .logo-img {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+        .lettering-logo {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .lettering-logo:hover {
+            transform: scale(1.05);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #f59e0b;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #f59e0b;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .filter-info {
+            animation: fadeInOut 5s forwards;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="logo.png" alt="Heartmade Pelúcias" class="logo-img">
+                    <img src="letteringlogo.png" alt="Heartmade Pelúcias Lettering" class="lettering-logo">
+                </a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="catalogocompleto.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Catálogo completo</a>
+                <a href="maisvendidos.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Mais vendidos</a>
+                <a href="categorias.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Categorias</a>
+                <a href="contato.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Contato</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <div class="relative flex-grow max-w-xl mx-4">
+
+                </div>
+                <button class="md:hidden p-2 text-gray-600" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="catalogocompleto.html" class="block py-2 text-gray-700 hover:text-amber-600">Catálogo completo</a>
+            <a href="maisvendidos.html" class="block py-2 text-gray-700 hover:text-amber-600">Mais vendidos</a>
+            <a href="categorias.html" class="block py-2 text-gray-700 hover:text-amber-600">Categorias</a>
+            <a href="contato.html" class="block py-2 text-gray-700 hover:text-amber-600">Contato</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Filters Section -->
+            <div class="w-full md:w-64 bg-white p-6 rounded-lg shadow-md h-fit">
+                <h3 class="font-bold text-lg mb-4 text-gray-800">Filtros</h3>
+                
+                <!-- Categories Filter -->
+                <div class="mb-6">
+                    <h4 class="font-medium text-gray-700 mb-3">Categorias</h4>
+                    <div class="space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="rounded text-amber-600 category-checkbox" value="Hora de aventura" id="cat-hora">
+                            <span>Hora de aventura</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="rounded text-amber-600 category-checkbox" value="Animais" id="cat-animais">
+                            <span>Animais</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="rounded text-amber-600 category-checkbox" value="Pokémon" id="cat-pokemon">
+                            <span>Pokémon</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="rounded text-amber-600 category-checkbox" value="Anime" id="cat-anime">
+                            <span>Anime</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="rounded text-amber-600 category-checkbox" value="Crochê" id="cat-croche">
+                            <span>Crochê</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Price Filter -->
+                <div class="mb-6">
+                    <h4 class="font-medium text-gray-700 mb-3">Preço Máximo (R$)</h4>
+                    <input type="range" min="20" max="200" value="200" class="w-full mb-2" id="price-range">
+                    <div class="flex justify-between text-sm text-gray-600">
+                        <span>R$20</span>
+                        <span id="price-value">R$200</span>
+                        <span>R$200</span>
+                    </div>
+                </div>
+                
+                <button class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded transition" id="apply-filters">
+                    Aplicar filtros
+                </button>
+            </div>
+            
+            <!-- Products Section -->
+            <div class="flex-1">
+                <!-- Sorting Options -->
+                <div class="bg-white p-4 rounded-lg shadow-md mb-6 flex flex-col">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-600">
+                            Mostrando <span class="font-medium" id="product-count">8</span> produtos
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-gray-600">Ordenar por:</span>
+                            <select class="border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-amber-200" id="sort-by">
+                                <option value="relevance">Mais relevantes</option>
+                                <option value="latest">Mais recentes</option>
+                                <option value="price-asc">Menor preço</option>
+                                <option value="price-desc">Maior preço</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="filter-info-message" class="filter-info text-sm text-amber-600 mt-2 hidden">
+                        <i class="fas fa-info-circle mr-1"></i> Filtro aplicado automaticamente a partir da seleção de categoria
+                    </div>
+                </div>
+                
+                <!-- Product Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="plush-catalog">
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-4">Heartmade Pelúcias</h3>
+                <p class="text-gray-400 max-w-2xl mx-auto">Pelúcias artesanais em Brasília com temas variados para todos os gostos!</p>
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Heartmade Pelúcias. Todos direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-generated product data - DO NOT MODIFY MANUALLY
+        // This section is automatically updated by the build script
+        // Generated on: 31/07/2025, 18:34:04
+        const availableProducts = [
+            { id: 1, name: "Pelúcia 1", price: 72, image: "https://via.placeholder.com/250x250?text=No+Image", category: "Animais" },
+            { id: 2, name: "Pelúcia 2", price: 40, image: "https://via.placeholder.com/250x250?text=No+Image", category: "Hora de aventura" },
+            { id: 3, name: "Pelúcia 3", price: 66, image: "https://via.placeholder.com/250x250?text=No+Image", category: "Pokémon" },
+            { id: 4, name: "Pelúcia 4", price: 27, image: "https://via.placeholder.com/250x250?text=No+Image", category: "Anime" },
+            { id: 5, name: "Pelúcia 5", price: 76, image: "https://via.placeholder.com/250x250?text=No+Image", category: "Crochê" },
+            { id: 6, name: "Pelúcia 6", price: 75, image: "https://via.placeholder.com/250x250?text=No+Image", category: "Pokémon" },
+            { id: 7, name: "Pelúcia 7", price: 58, image: "https://via.placeholder.com/250x250?text=No+Image", category: "Hora de aventura" },
+            { id: 8, name: "Pelúcia 8", price: 53, image: "https://via.placeholder.com/250x250?text=No+Image", category: "Anime" }
+        ];
+
+        let currentFilteredProducts = [...availableProducts];
+        let maxPrice = 200;
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Update range slider values
+        const priceRange = document.getElementById('price-range');
+        const priceValue = document.getElementById('price-value');
+
+        priceRange.oninput = function() {
+            priceValue.innerHTML = "R$" + this.value;
+        }
+
+        // Filter products by max price and category
+        function applyFilters(automatic = false) {
+            const selectedCategories = Array.from(document.querySelectorAll('.category-checkbox:checked'))
+                .map(cb => cb.value);
+            
+            maxPrice = parseInt(priceRange.value);
+            priceValue.innerHTML = "R$" + maxPrice;
+            
+            let filtered = availableProducts;
+            
+            // Filter by price
+            if (maxPrice < 200) {
+                filtered = filtered.filter(item => item.price <= maxPrice);
+            }
+            
+            // Filter by category
+            if (selectedCategories.length > 0) {
+                filtered = filtered.filter(item => selectedCategories.includes(item.category));
+            }
+            
+            currentFilteredProducts = filtered;
+            renderPlushItems(currentFilteredProducts);
+
+            // Show automatic filter message if applicable
+            if (automatic) {
+                const message = document.getElementById('filter-info-message');
+                message.classList.remove('hidden');
+                setTimeout(() => {
+                    message.classList.add('hidden');
+                }, 5000);
+            }
+        }
+
+        // Function to render plush items
+        function renderPlushItems(items) {
+            const catalogContainer = document.getElementById('plush-catalog');
+            const productCountSpan = document.getElementById('product-count');
+            
+            if (catalogContainer) {
+                catalogContainer.innerHTML = '';
+                
+                if (items.length === 0) {
+                    catalogContainer.innerHTML = `
+                        <div class="col-span-full text-center py-12">
+                            <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
+                            <h3 class="text-xl font-medium text-gray-700 mb-2">Nenhum produto encontrado</h3>
+                            <p class="text-gray-500">Tente ajustar os filtros para ver mais produtos.</p>
+                        </div>
+                    `;
+                    productCountSpan.textContent = '0';
+                    return;
+                }
+                
+                items.forEach((item) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'bg-white rounded-lg overflow-hidden shadow-md plush-card transition duration-300';
+                    itemElement.innerHTML = `
+                        <a href="p${item.id}.html" class="block">
+                            <div class="p-4">
+                                <img src="${item.image}" alt="${item.name}" class="plush-image w-full rounded-lg mb-4">
+                                <h3 class="font-medium text-gray-800 mb-1">${item.name}</h3>
+                                <p class="text-amber-600 font-bold">R${item.price.toFixed(2)}</p>
+                                <p class="text-gray-500 text-sm mt-1">Prazo: ${Math.floor(Math.random() * 8) + 3} dias</p>
+                            </div>
+                        </a>
+                    `;
+                    catalogContainer.appendChild(itemElement);
+                });
+
+                productCountSpan.textContent = items.length;
+            }
+        }
+
+        // Sorting functionality
+        const sortBySelect = document.getElementById('sort-by');
+
+        sortBySelect.addEventListener('change', function() {
+            const sortValue = this.value;
+            let sortedItems = [...currentFilteredProducts];
+
+            switch (sortValue) {
+                case 'relevance':
+                case 'latest':
+                    sortedItems.sort((a, b) => a.id - b.id);
+                    break;
+                case 'price-asc':
+                    sortedItems.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    sortedItems.sort((a, b) => b.price - a.price);
+                    break;
+            }
+            renderPlushItems(sortedItems);
+        });
+
+        // Filter button handler
+        document.getElementById('apply-filters').addEventListener('click', function() {
+            applyFilters(false);
+        });
+
+        // Function to check URL parameters and apply filters
+        function checkUrlParameters() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            
+            if (category) {
+                // Find the checkbox for this category
+                const checkboxes = document.querySelectorAll('.category-checkbox');
+                let categoryFound = false;
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.value === category) {
+                        checkbox.checked = true;
+                        categoryFound = true;
+                    }
+                });
+                
+                if (categoryFound) {
+                    // Apply filters immediately without needing button click
+                    applyFilters(true);
+                    return true; // Indicate that filters were applied
+                }
+            }
+            return false;
+        }
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', function() {
+            // First check URL parameters
+            const filtersApplied = checkUrlParameters();
+            
+            // Only render all products if no category filter was applied
+            if (!filtersApplied) {
+                renderPlushItems(availableProducts);
+            }
+        });
+    </script>
+</body>
+</html>

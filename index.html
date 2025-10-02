@@ -1,0 +1,377 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartmade Pelúcias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .plush-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .plush-image {
+            height: 250px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+        .plush-card:hover .plush-image {
+            transform: scale(1.05);
+        }
+        .nav-link:hover {
+            color: #f59e0b;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .logo-img {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+        .lettering-logo {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .lettering-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Styles for News Carousel */
+        #news-container {
+            display: flex;
+            gap: 1.5rem; /* Equivalent to Tailwind's gap-6 */
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            overflow-x: auto; /* Allows horizontal scrolling if needed */
+        }
+
+        .news-card {
+            flex: 0 0 auto;
+            width: 100%; /* Default to full width for small screens */
+            scroll-snap-align: start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-image {
+            height: 200px; /* Fixed height for news images */
+            object-fit: cover;
+            width: 100%;
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+
+        /* Responsive adjustments for news cards */
+        @media (min-width: 640px) { /* sm */
+            .news-card {
+                width: calc((100% - 1.5rem) / 2); /* Two cards per row with gap */
+            }
+        }
+
+        @media (min-width: 768px) { /* md */
+            .news-card {
+                width: calc((100% - 3rem) / 3); /* Three cards per row with gap */
+            }
+        }
+
+        @media (min-width: 1024px) { /* lg */
+            .news-card {
+                width: calc((100% - 4.5rem) / 4); /* Four cards per row with gap */
+            }
+        }
+
+        /* Carousel navigation buttons */
+        #prev-news, #next-news {
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0.75rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 9999px; /* full rounded */
+            transition: background-color 0.3s ease;
+        }
+
+        #prev-news:hover, #next-news:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Carousel dots */
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: #d1d5db; /* gray-300 */
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #f59e0b; /* amber-500 */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="logo.png" alt="Heartmade Pelúcias" class="logo-img">
+                    <img src="letteringlogo.png" alt="Heartmade Pelúcias Lettering" class="lettering-logo">
+                </a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="catalogocompleto.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Catálogo completo</a>
+                <a href="maisvendidos.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Mais vendidos</a>
+                <a href="categorias.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Categorias</a>
+                <a href="contato.html" class="nav-link text-gray-700 hover:text-amber-600 font-medium">Contato</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden p-2 text-gray-600" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="catalogocompleto.html" class="block py-2 text-gray-700 hover:text-amber-600">Catálogo completo</a>
+            <a href="maisvendidos.html" class="block py-2 text-gray-700 hover:text-amber-600">Mais vendidos</a>
+            <a href="categorias.html" class="block py-2 text-gray-700 hover:text-amber-600">Categorias</a>
+            <a href="contato.html" class="block py-2 text-gray-700 hover:text-amber-600">Contato</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-amber-100 to-amber-50 py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <img src="lettering.png" alt="Premium Plush Collection" class="mx-auto" style="height: 160px;">
+            </div>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">Pelúcias artesanais em Brasília com temas variados para todos os gostos!</p>
+            <button onclick="document.getElementById('plush-collection').scrollIntoView({behavior: 'smooth'})" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                Venha conferir!
+            </button>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Descubra</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="catalogocompleto.html" class="bg-amber-50 rounded-lg p-4 text-center hover:bg-amber-100 transition duration-300">
+                    <div class="h-16 w-16 mx-auto mb-2 text-amber-600">
+                        <i class="fas fa-list text-4xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Catálogo completo</h3>
+                </a>
+                <a href="maisvendidos.html" class="bg-amber-50 rounded-lg p-4 text-center hover:bg-amber-100 transition duration-300">
+                    <div class="h-16 w-16 mx-auto mb-2 text-amber-600">
+                        <i class="fas fa-star text-4xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Mais vendidos</h3>
+                </a>
+                <a href="categorias.html" class="bg-amber-50 rounded-lg p-4 text-center hover:bg-amber-100 transition duration-300">
+                    <div class="h-16 w-16 mx-auto mb-2 text-amber-600">
+                        <i class="fas fa-tags text-4xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Categorias</h3>
+                </a>
+                <a href="contato.html" class="bg-amber-50 rounded-lg p-4 text-center hover:bg-amber-100 transition duration-300">
+                    <div class="h-16 w-16 mx-auto mb-2 text-amber-600">
+                        <i class="fas fa-circle-user text-4xl"></i>
+                    </div>
+                    <h3 class="font-medium text-gray-800">Contato</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plush Catalog -->
+    <section id="plush-collection" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-800">Coleção do mês</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="plush-catalog">
+                <a href="p1.html" class="bg-white rounded-lg overflow-hidden shadow-md plush-card transition duration-300 block">
+                    <div class="p-4">
+                        <div class="bg-gray-200 h-64 rounded-lg mb-4"></div>
+                        <h3 class="font-medium text-gray-800 mb-1">Pelúcia Totoro - Studio Ghibli</h3>
+                        <p class="text-amber-600 font-bold">R$0.00</p>
+                    </div>
+                </a>
+                <a href="p2.html" class="bg-white rounded-lg overflow-hidden shadow-md plush-card transition duration-300 block">
+                    <div class="p-4">
+                        <div class="bg-gray-200 h-64 rounded-lg mb-4"></div>
+                        <h3 class="font-medium text-gray-800 mb-1">Em breve!</h3>
+                        <p class="text-amber-600 font-bold">R$0.00</p>
+                    </div>
+                </a>
+                <a href="p3.html" class="bg-white rounded-lg overflow-hidden shadow-md plush-card transition duration-300 block">
+                    <div class="p-4">
+                        <div class="bg-gray-200 h-64 rounded-lg mb-4"></div>
+                        <h3 class="font-medium text-gray-800 mb-1">Em breve!</h3>
+                        <p class="text-amber-600 font-bold">R$0.00</p>
+                    </div>
+                </a>
+                <a href="p4.html" class="bg-white rounded-lg overflow-hidden shadow-md plush-card transition duration-300 block">
+                    <div class="p-4">
+                        <div class="bg-gray-200 h-64 rounded-lg mb-4"></div>
+                        <h3 class="font-medium text-gray-800 mb-1">Em breve!</h3>
+                        <p class="text-amber-600 font-bold">R$0.00</p>
+                    </div>
+                </a>
+            </div>   
+
+        </div>
+    </section>
+
+    <!-- News Carousel Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Últimas Notícias</h2>
+            <div id="news-carousel" class="relative w-full overflow-hidden">
+                <div class="flex transition-transform duration-500 ease-in-out" id="news-container">
+                <a href="source/ntc1.html" class="news-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 block">
+                    <img src="source/ntc1.jpg" alt="Inauguração Heartmade Pelúcias!!" class="news-image">
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Inauguração Heartmade Pelúcias!!</h3>
+                        <p class="text-gray-600 text-sm mb-2">Saiba mais sobre a mais nova loja de pelúcias de Brasília!</p>
+                        <p class="text-gray-500 text-xs">10 de ago. de 2025</p>
+                    </div>
+                </a>
+            </div>
+                <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-10 ml-2" id="prev-news">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-10 mr-2" id="next-news">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="flex justify-center mt-4 space-x-2" id="carousel-dots"><span class="dot active" data-index="0"></span></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-4">Heartmade Pelúcias</h3>
+                <p class="text-gray-400 max-w-2xl mx-auto">Pelúcias artesanais em Brasília com temas variados para todos os gostos!</p>
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>© 2025 Heartmade Pelúcias. Todos direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // News Carousel Logic (simplified since news are pre-rendered)
+        const newsContainer = document.getElementById('news-container');
+        const prevNewsButton = document.getElementById('prev-news');
+        const nextNewsButton = document.getElementById('next-news');
+        const carouselDotsContainer = document.getElementById('carousel-dots');
+        let currentNewsIndex = 0;
+
+        function updateCarousel() {
+            const cardWidth = newsContainer.children[0]?.offsetWidth || 0;
+            const gapWidth = 24; // gap-6 in Tailwind is 1.5rem = 24px
+            const scrollAmount = (cardWidth + gapWidth) * currentNewsIndex;
+            newsContainer.style.transform = `translateX(-${scrollAmount}px)`;
+
+            // Update dots
+            Array.from(carouselDotsContainer.children).forEach((dot, index) => {
+                if (index === currentNewsIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+
+            // Hide/show navigation buttons based on current index
+            prevNewsButton.classList.toggle('hidden', currentNewsIndex === 0);
+            nextNewsButton.classList.toggle('hidden', currentNewsIndex >= newsContainer.children.length - getVisibleCardsCount());
+        }
+
+        function getVisibleCardsCount() {
+            const containerWidth = newsContainer.offsetWidth;
+            const cardWidth = newsContainer.children[0]?.offsetWidth || 0;
+            const gapWidth = 24;
+            if (cardWidth === 0) return 1; // Avoid division by zero
+
+            // Calculate how many cards fit, considering the gap
+            let count = 0;
+            let currentWidth = 0;
+            for (let i = 0; i < newsContainer.children.length; i++) {
+                if (currentWidth + cardWidth <= containerWidth) {
+                    count++;
+                    currentWidth += cardWidth + gapWidth;
+                } else {
+                    break;
+                }
+            }
+            return Math.max(1, count); // Ensure at least 1 visible card
+        }
+
+        function scrollToNews(index) {
+            currentNewsIndex = index;
+            updateCarousel();
+        }
+
+        // Add click event listeners to dots
+        carouselDotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => scrollToNews(index));
+        });
+
+        prevNewsButton.addEventListener('click', () => {
+            if (currentNewsIndex > 0) {
+                currentNewsIndex--;
+                updateCarousel();
+            }
+        });
+
+        nextNewsButton.addEventListener('click', () => {
+            if (currentNewsIndex < newsContainer.children.length - getVisibleCardsCount()) {
+                currentNewsIndex++;
+                updateCarousel();
+            }
+        });
+
+        // Recalculate visible cards and update carousel on resize
+        window.addEventListener('resize', () => {
+            // Reset index to 0 or adjust if current index is out of bounds
+            if (currentNewsIndex > newsContainer.children.length - getVisibleCardsCount()) {
+                currentNewsIndex = Math.max(0, newsContainer.children.length - getVisibleCardsCount());
+            }
+            updateCarousel();
+        });
+
+        // Initialize carousel
+        updateCarousel();
+    </script>
+
+</body></html>
